@@ -1,0 +1,26 @@
+@import "str-to-list";
+
+$list: str-to-list("#{$tag_descriptions}", "|");
+$nested-list: ();
+@each $item in $list {
+  $item: str-to-list("#{$item}", ";");
+  $nested-list: append($nested-list, $item);
+}
+.tag-header-widget {
+  .tag-title-header {
+    .tag-title-contents {
+      display: flex;
+      flex-direction: column;
+      &:after {
+        font-size: var(--font-up-1);
+      }
+    }
+    @each $tag, $description in $nested-list {
+      &.single-tag.tag-banner-#{$tag} {
+        .tag-title-contents:after {
+          content: $description;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+tag_descriptions:
+  type: list
+  default: "featured; The featured tag description"
+  description:
+    en: 'Semicolon delimited in this order: Tag name;Description<br>The description will only be shown on tag banners'
